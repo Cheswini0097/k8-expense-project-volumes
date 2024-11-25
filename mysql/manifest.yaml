@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: mysql-headless
   namespace: expense
-  spec:
+spec:
   clusterIP: None # for headless service there is no cluster IP
   selector:
     project: expense
@@ -29,7 +29,7 @@ spec:
     port: 3306 # service port
     targetPort: 3306
 ---
-    apiVersion: apps/v1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mysql
@@ -51,7 +51,7 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: chethankumar6/mysql:v1
+        image: joindevops/mysql:v1
         volumeMounts:
         - name: mysql
           mountPath: /var/lib/mysql
